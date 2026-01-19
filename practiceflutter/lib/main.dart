@@ -11,6 +11,11 @@ class QuoteList extends StatefulWidget {
 
 }
 class _QuoteListState extends State<QuoteList>{
+  List<String> quotes =[ 
+    'All the worlds a stageAnd all the men and women merely players.' ,
+    'To be, or not to be: that is the question.' ,
+    'Some are born great, some achieve greatness,and some have greatness thrust upon them.'
+  ] ;
      @override
      Widget build(BuildContext Context){
         return Scaffold(
@@ -24,6 +29,11 @@ class _QuoteListState extends State<QuoteList>{
               ),
               backgroundColor: Colors.grey[800],
               centerTitle: true,
+            ),
+            body: Column(
+              children : quotes.map((quote) {
+                  return Text(quote) ;
+              }).toList()
             ),
         );
      } 
