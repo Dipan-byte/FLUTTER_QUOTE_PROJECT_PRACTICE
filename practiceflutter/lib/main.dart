@@ -17,6 +17,34 @@ class _QuoteListState extends State<QuoteList>{
     Quote(text: 'Some are born great, some achieve greatness,and some have greatness thrust upon them.', author: 'bitch')
     
   ] ;
+  Widget QuoteTemplate(quote){
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 16.0 , 16.0 , 0.0),
+      child: Padding(
+        padding: EdgeInsets.all(12.0),
+        child:Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            quote.text ,
+            style: TextStyle(
+              fontSize: 20.0 ,
+              color: Colors.grey[900]
+            ),
+          ),
+          SizedBox(height: 6.0),
+          Text(
+            quote.author ,
+            style: TextStyle(
+              fontSize: 20.0 ,
+              color: Colors.grey[900]
+            ),
+          )
+        ],
+      ),
+      )
+    );
+  }
      @override
      Widget build(BuildContext Context){
         return Scaffold(
@@ -33,7 +61,8 @@ class _QuoteListState extends State<QuoteList>{
             ),
             body: Column(
               children : quotes.map((quote) {
-                  return Text('${quote.text} - ${quote.author}') ;
+                  // return Text('${quote.text} - ${quote.author}') ; 
+                  return QuoteTemplate(quote) ;
               }).toList()
             ),
         );
