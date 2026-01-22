@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'quote.dart' ;
 void main() {
   runApp(MaterialApp(
     home: QuoteList() ,
@@ -11,10 +11,11 @@ class QuoteList extends StatefulWidget {
 
 }
 class _QuoteListState extends State<QuoteList>{
-  List<String> quotes =[ 
-    'All the worlds a stageAnd all the men and women merely players.' ,
-    'To be, or not to be: that is the question.' ,
-    'Some are born great, some achieve greatness,and some have greatness thrust upon them.'
+  List<Quote> quotes =[ 
+    Quote(author: 'lawra' , text: 'All the worlds a stageAnd all the men and women merely players.'),
+    Quote(author: 'magi' , text: 'To be, or not to be: that is the question.') ,
+    Quote(text: 'Some are born great, some achieve greatness,and some have greatness thrust upon them.', author: 'bitch')
+    
   ] ;
      @override
      Widget build(BuildContext Context){
@@ -32,7 +33,7 @@ class _QuoteListState extends State<QuoteList>{
             ),
             body: Column(
               children : quotes.map((quote) {
-                  return Text(quote) ;
+                  return Text('${quote.text} - ${quote.author}') ;
               }).toList()
             ),
         );
