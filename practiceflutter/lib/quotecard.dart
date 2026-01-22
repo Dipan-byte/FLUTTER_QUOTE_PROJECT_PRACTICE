@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+import 'quote.dart' ;
+
+class QuoteCard extends StatefulWidget {
+  final Quote quote ;
+  const QuoteCard({ required this.quote});
+
+  @override
+  State<QuoteCard> createState() => _QuoteCardState();
+}
+
+class _QuoteCardState extends State<QuoteCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 16.0 , 16.0 , 0.0),
+      child: Padding(
+        padding: EdgeInsets.all(12.0),
+        child:Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            widget.quote.text ,
+            style: TextStyle(
+              fontSize: 20.0 ,
+              color: Colors.grey[900]
+            ),
+          ),
+          SizedBox(height: 6.0),
+          Text(
+            widget.quote.author ,
+            style: TextStyle(
+              fontSize: 20.0 ,
+              color: Colors.grey[900]
+            ),
+          )
+        ],
+      ),
+      )
+    );;
+  }
+}
