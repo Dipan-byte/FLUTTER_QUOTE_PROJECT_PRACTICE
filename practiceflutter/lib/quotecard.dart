@@ -39,6 +39,6 @@ class QuoteCard extends StatelessWidget {
         ],
       ),
       )
-    );;
+    );
   }
 }
