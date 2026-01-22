@@ -18,9 +18,7 @@ class _QuoteListState extends State<QuoteList>{
     Quote(text: 'Some are born great, some achieve greatness,and some have greatness thrust upon them.', author: 'bitch')
     
   ] ;
-  Widget QuoteTemplate(quote){
-    return  new QuoteCard(quote:quote) ;
-  }
+  
      @override
      Widget build(BuildContext Context){
         return Scaffold(
@@ -38,7 +36,14 @@ class _QuoteListState extends State<QuoteList>{
             body: Column(
               children : quotes.map((quote) {
                   // return Text('${quote.text} - ${quote.author}') ; 
-                  return QuoteTemplate(quote) ;
+                  return QuoteCard(quote: quote,
+                  delete: (){
+                    setState(() {
+                      quotes.remove(quote);
+                    });
+                  }
+                  );
+                  
               }).toList()
             ),
         );

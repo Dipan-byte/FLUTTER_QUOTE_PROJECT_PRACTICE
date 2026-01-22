@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'quote.dart' ;
 
-class QuoteCard extends StatefulWidget {
+class QuoteCard extends StatelessWidget {
   final Quote quote ;
-  const QuoteCard({ required this.quote});
+  final VoidCallback delete ;
+  const QuoteCard({ required this.quote , required this.delete});
 
-  @override
-  State<QuoteCard> createState() => _QuoteCardState();
-}
-
-class _QuoteCardState extends State<QuoteCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,7 +16,7 @@ class _QuoteCardState extends State<QuoteCard> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Text(
-            widget.quote.text ,
+            quote.text ,
             style: TextStyle(
               fontSize: 20.0 ,
               color: Colors.grey[900]
@@ -28,11 +24,17 @@ class _QuoteCardState extends State<QuoteCard> {
           ),
           SizedBox(height: 6.0),
           Text(
-            widget.quote.author ,
+            quote.author ,
             style: TextStyle(
               fontSize: 20.0 ,
               color: Colors.grey[900]
             ),
+          ),
+          SizedBox(height: 6.0),
+          ElevatedButton.icon(
+            onPressed: delete ,
+            label: Text('Delete quote'),
+            icon: Icon(Icons.delete),
           )
         ],
       ),
